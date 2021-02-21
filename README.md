@@ -49,7 +49,7 @@ Results:
     - It is not detecting numbers for person names (either first or last) and rejecting it
     - It is not detecting symbols for person names (either first or last) and rejecting it
 - As an api consumer I want to be informed of a person missing data.feature
-  - Failed. 
+  - Failed
     - It is not detecting missing "firstName" property and rejecting it
     - It is not detecting missing "lastName" property and rejecting it
     - It is possible to create an empty person, i.e. without both "firstName" and "lastName"
@@ -58,7 +58,8 @@ Results:
 - As an api consumer I want to be informed of a wrong method.feature
   - Passed
 - As an api consumer I want to create a new ordinary person.feature
-  - Passed
+  - Failed
+    - There is a random issue which changes "firstName" value into a new string with twice or three times its value. Example: "abc" -> "abcabc" or "abcabcabc"
 - As an api consumer I want to create a new person with special characters.feature
   - Passed
 - As an api consumer I want to list all persons.feature
