@@ -1,0 +1,145 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Pereson API",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "http://azure-qknows-prod-challenges-1.northeurope.cloudapp.azure.com/",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {
+    "/api/person/all": {
+      "get": {
+        "tags": [
+          "person-controller"
+        ],
+        "operationId": "findAll",
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Person"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      }
+    },
+    "/api/person/": {
+      "put": {
+        "tags": [
+          "person-controller"
+        ],
+        "operationId": "addPerson",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Person"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "readOnly": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      }
+    },
+    "/api/person/{id}": {
+      "get": {
+        "tags": [
+          "person-controller"
+        ],
+        "operationId": "getPerson",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "default response",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Person"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Person": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "readOnly": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "basicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  }
+}

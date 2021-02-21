@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+behave = "*"
+requests = "*"
+jsonpath-ng = "*"
+openapi-schema-validator = "*"
+rstr = "*"
+PyHamcrest = "*"
+
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
